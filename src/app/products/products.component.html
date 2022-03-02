@@ -2,3 +2,90 @@
 <h1>{{StoreName}}</h1>
 <img src="../../../../logo.jpg" alt="logo Img">
 <h3>{{"we offer an explixit discount of" +10}}</h3>
+
+
+
+<!-- 1 -->
+<h3 *ngIf="!(Discount==no) then thenBlock else elseBlock; " ></h3>
+<ng-template #thenBlock>
+    <h2>
+        We offer an explicit discount of:{{Discount|percent}}
+   </h2>
+</ng-template>
+<ng-template #elseBlock>
+    <h2>
+        We have no discounts
+   </h2>
+</ng-template>
+<br><br>
+<!-- 2 -->
+
+<select name="Category">
+    <option *ngFor="let cat of CategoryList ">
+        {{cat.Name}}
+    </option>
+</select>
+<br><br>
+<!-- 3 -->
+<hr>
+
+<table style="border: 1px black solid ; background-color: antiquewhite; width: 300px; height: 200px;">
+    <thead>
+        <tr >
+            <th >ID</th>
+            <th >Name</th>
+            <th >Quantity</th>
+            <th >Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of ProductList ">
+            <td>{{product.ID}}</td>
+            <td>{{product.Name}}</td>
+            <td>{{product.Quantity}}</td>
+            <td>{{product.Price}}</td>
+        </tr>
+
+    </tbody>
+</table>
+<br><br>
+
+
+<!-- 4 -->
+<input type="text"  [(ngModel)]="ClientName">
+<span> ClientName is: {{ClientName}}</span>
+
+<br><br>
+<!-- 5 -->
+
+<input type="button" value="Buy" (click)="isPurchasedChange()" >
+
+<div *ngIf="!IsPurshased;  then elseDisplay; else thenDisplay; ">
+</div>
+<ng-template #thenDisplay>
+    <h2>
+        <table style="border: 1px black solid ; background-color: antiquewhite; width: 300px; height: 200px;">
+            <thead>
+                <tr >
+                    <th >ID</th>
+                    <th >Name</th>
+                    <th >Quantity</th>
+                    <th >Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of ProductList ">
+                    <td>{{product.ID}}</td>
+                    <td>{{product.Name}}</td>
+                    <td>{{product.Quantity}}</td>
+                    <td>{{product.Price}}</td>
+                </tr>
+        
+            </tbody>
+        </table>
+    </h2>
+</ng-template>
+
+<ng-template #elseDisplay>
+    <div>Thanks for purchasing from our Store: {{ClientName}}</div>
+</ng-template>

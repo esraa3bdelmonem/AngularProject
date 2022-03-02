@@ -11,7 +11,7 @@ import {IProduct} from '../Shared Classes and types/Interfaces';
 export class ProductsComponent implements OnInit {
 
 //Discount:DiscountOffers="No Discount";
-Discount = DiscountOffers['DIS10%'];
+Discount = DiscountOffers['No Discount'];
 
 StoreName:string="";
  StoreLogo:string="";
@@ -66,13 +66,17 @@ StoreName:string="";
     },
   ]
 
- 
- 
-
   }
 
-
   ngOnInit(): void {
+  }
+  no=DiscountOffers['No Discount'];
+
+  isPurchasedChange()
+  {
+      if(this.IsPurshased==false){
+        this.IsPurshased=true;
+      }
   }
 
 }
