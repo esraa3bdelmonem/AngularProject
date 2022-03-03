@@ -19,6 +19,7 @@ StoreName:string="";
  CategoryList=new Array <ICategory>();
  ClientName:string="";
  IsPurshased:boolean=true;
+  productService: any;
 
   constructor() { 
     this.Discount= DiscountOffers["No Discount"],
@@ -68,8 +69,7 @@ StoreName:string="";
 
   }
 
-  ngOnInit(): void {
-  }
+ 
   no=DiscountOffers['No Discount'];
 
   isPurchasedChange()
@@ -79,5 +79,24 @@ StoreName:string="";
       }
   }
 
+
+
+productList:any;  
+   ProductID:any;  
+  ngOnInit(): void {
+    this.productList=this.productService.GetAllProducts();
+    this.ProductID=this.productService.GetProductById(2);
+
+  }
+
+  renderValues(){
+    return this.productList=this.productService.GetAllProducts();
+  }}
+
+function renderValues() {
+  throw new Error('Function not implemented.');
+}
+function ngOnInit() {
+  throw new Error('Function not implemented.');
 }
 
