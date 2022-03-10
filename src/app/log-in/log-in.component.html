@@ -1,0 +1,15 @@
+<div class="container">
+    <form #loginform="ngForm">
+        {{loginform.value|json}}
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="email" class="form-control" name="email" ngModel />
+            </div>
+            <div class="form-group">
+                <label>PassWord:</label>
+                <input type="password" class="form-control" name="password" ngModel/>
+            </div>
+        <input type="submit" class="btn btn-primary" value="Login" />
+
+    </form>
+</div>

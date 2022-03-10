@@ -1,0 +1,8 @@
+<div class="biggerContainer">
+    <div class="container" *ngFor="let post of postes">
+            <div class="productName">{{post.id }}</div>
+            <div class="Quantity">{{post.title}}</div>
+            <div class="productPrice">{{post.body}}</div>
+            <button (click)="showComments(post.id)" class="Cart" >Show Comments</button>
+    </div>
+    </div>

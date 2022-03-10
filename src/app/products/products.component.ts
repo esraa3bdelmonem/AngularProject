@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ICategory } from '../Shared Classes and types/Interfaces';
 import {DiscountOffers}from '../Shared Classes and types/Enums';
 import {IProduct} from '../Shared Classes and types/Interfaces';
+import { ProductServiceService } from '../Services/product-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -21,7 +23,8 @@ StoreName:string="";
  IsPurshased:boolean=true;
   productService: any;
 
-  constructor() { 
+  constructor(private router:Router) { 
+    
     this.Discount= DiscountOffers["No Discount"],
     this.StoreName='OcazStore',
     this.StoreLogo="../../../../logo.jpg",
@@ -78,7 +81,7 @@ StoreName:string="";
         this.IsPurshased=true;
       }
   }
-
+ 
 
 
 productList:any;  
@@ -88,9 +91,16 @@ productList:any;
     this.ProductID=this.productService.GetProductById(2);
 
   }
+  
 
   renderValues(){
     return this.productList=this.productService.GetAllProducts();
+  }
+  navigate() {
+    this.router.navigate(["/product"]);
+  }
+  navigate2() {
+    this.router.navigate(["/product"]);
   }}
 
 function renderValues() {

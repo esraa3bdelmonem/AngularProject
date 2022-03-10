@@ -89,3 +89,40 @@
 <ng-template #elseDisplay>
     <div>Thanks for purchasing from our Store: {{ClientName}}</div>
 </ng-template>
+<!-- lap3 -->
+<div *ngFor="let product of productList">
+    {{product.Id}}
+    {{product.name}}
+    {{product.quentity}}
+    {{product.Price}}
+</div>
+
+<br>
+
+
+
+{{"ProductDetails:  ID :" + ProductID.Id + "   , Name   " + ProductID.name + ",  Price "+ProductID.Price }}
+
+<!-- lab 4 -->
+ <table  class="table">
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Quantity</td>
+        <td>Price</td>
+        
+    </tr>
+    <tr *ngFor="let item of ProductList">
+        <td>{{item.ID}}</td>
+        <td>{{item.Name}}</td>
+        <td>{{item.Quantity}}</td>
+        <td>{{item.Price}}</td>
+       
+    </tr>
+    </table> -->
+ 
+<!-- 5 -->
+<pre>
+    <button class="btn btn-primary" (click)="navigate()">Products with discount</button>  <br>  
+    <button class="btn btn-primary" (click)="navigate2()" >Products without discount</button>
+</pre>
